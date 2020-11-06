@@ -20,9 +20,9 @@ export class AppComponent implements OnInit {
   choices;
   choice1;
   choice2;
-  choice1VoteAmount;
-  choice2VoteAmount;
-  winner;
+  choice1VoteAmount = 0;
+  choice2VoteAmount = 0;
+  winner = null;
 
   constructor(private webSocketService: WebSocketService) {}
 
@@ -34,13 +34,15 @@ export class AppComponent implements OnInit {
       this.choices = choices;
       this.choice1 = choices[0];
       this.choice2 = choices[1];
+      this.choice1VoteAmount = 0;
+      this.choice2VoteAmount = 0;
+
       window.scrollTo(0, 0);
     });
 
     this.webSocketService.getEndVote().subscribe((winningId) => {
       console.log('Vote ended message from server', winningId);
       this.setWinner(winningId);
-      this.choices = null;
       this.choice1 = null;
       this.choice2 = null;
     });
@@ -61,6 +63,7 @@ export class AppComponent implements OnInit {
     );
     if (winningIndex >= 0) {
       this.winner = this.choices[winningIndex];
+      this.choices = null;
     } else {
       console.log('COULD NOT DETERMINE WINNER');
     }

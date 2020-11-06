@@ -32,3 +32,21 @@ $borderThickness: 15px;
 .img-option2 {
   border: $borderThickness solid rgb(202, 46, 46) !important;
 }
+
+.emoji {
+  font-size: 120pt;
+}
+
+.no-vote {
+  font-size: 40pt;
+}
+
+.flex-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .container {
+    flex-grow: 0;
+  }
+}
