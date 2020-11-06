@@ -7,13 +7,28 @@ h3 {
   text-shadow: 1px 1px 50px black;
 }
 
+h1 {
+  font-weight: bold;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
 h2 {
-  font-size: 24pt;
+  font-size: 20pt;
   font-weight: bold;
   font-family: "Source Sans Pro", sans-serif;
 }
 
 h3 {
+  font-size: 16pt;
   font-weight: bold;
   font-family: "Cairo", sans-serif;
+}
+
+$borderThickness: 15px;
+.img-option1 {
+  border: $borderThickness solid rgb(21, 167, 21) !important;
+}
+
+.img-option2 {
+  border: $borderThickness solid rgb(202, 46, 46) !important;
 }

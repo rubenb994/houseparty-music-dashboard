@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 const config: SocketIoConfig = {
@@ -13,7 +13,8 @@ const config: SocketIoConfig = {
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
