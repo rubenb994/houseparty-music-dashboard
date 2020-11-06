@@ -9,6 +9,14 @@ export class WebSocketService {
 
   constructor(private socket: Socket) {}
 
+  public getUpdatedVotes(): Observable<any> {
+    return new Observable((observer) => {
+      this.socket.on('votes-updated', (votes) => {
+        observer.next(votes);
+      });
+    });
+  }
+  
   public getNewVote(): Observable<any> {
     return new Observable((observer) => {
       this.socket.on('new-vote', (choice) => {
@@ -20,7 +28,7 @@ export class WebSocketService {
   public getEndVote(): Observable<any> {
     return new Observable((observer) => {
       this.socket.on('end-vote', (winner) => {
-        observer.next();
+        observer.next(winner);
       });
     });
   }

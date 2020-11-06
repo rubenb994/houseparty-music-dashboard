@@ -9,6 +9,7 @@ import { WebSocketService } from './services/web-socket.service';
 export class AppComponent implements OnInit {
   choice1;
   choice2;
+  winner;
 
   constructor(private webSocketService: WebSocketService) {}
 
@@ -20,10 +21,15 @@ export class AppComponent implements OnInit {
       window.scrollTo(0, 0);
     });
 
-    this.webSocketService.getEndVote().subscribe(() => {
-      console.log('Vote ended message from server');
+    this.webSocketService.getEndVote().subscribe((winningId) => {
+      console.log('Vote ended message from server', winningId);
       this.choice1 = null;
       this.choice2 = null;
     });
+
+    this.webSocketService.getUpdatedVotes().subscribe((votes) => {
+      console.log('New votes have been submitted', votes);
+    });
+
   }
 }
