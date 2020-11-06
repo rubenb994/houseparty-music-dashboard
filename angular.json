@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "houseparty-music-dashboard"
+    }
+  },
+  "defaultProject": "houseparty-music-dashboard",
+  "cli": {
+    "analytics": false
+  }
 }
